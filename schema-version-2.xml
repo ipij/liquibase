@@ -2,5 +2,15 @@
 <databaseChangeLog xmlns="http://www.liquibase.org/xml/ns/dbchangelog" xmlns:ext="http://www.liquibase.org/xml/ns/dbchangelog-ext" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.3.xsd http://www.liquibase.org/xml/ns/dbchangelog-ext http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-ext.xsd">
     <changeSet author="Athlan (generated)" id="1415899100811-1" objectQuotingStrategy="QUOTE_ALL_OBJECTS">
         <dropTable tableName="table1"/>
+        <rollback>
+            <createTable tableName="table1">
+                <column autoIncrement="true" name="id" type="SERIAL">
+                    <constraints primaryKey="true" primaryKeyName="table1_pkey"/>
+                </column>
+                <column name="name" type="VARCHAR(255)">
+                    <constraints nullable="false"/>
+                </column>
+            </createTable>
+        </rollback>
     </changeSet>
 </databaseChangeLog>

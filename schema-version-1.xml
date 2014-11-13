@@ -9,8 +9,5 @@
                 <constraints nullable="false"/>
             </column>
         </createTable>
-        <rollback>
-            <dropTable tableName="table1"/>
-        </rollback>
     </changeSet>
 </databaseChangeLog>
